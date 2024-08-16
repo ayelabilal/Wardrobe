@@ -16,13 +16,16 @@ import img3 from '../assets/img3.jpg';
 import img4 from '../assets/img4.jpg';
 import img5 from '../assets/img5.jpg';
 import img6 from '../assets/img6.jpg';
+import { useNavigate } from "react-router-dom";
 const About = () => {
-  const home = () => {
-    window.location.href = "/";
-  };
-  const product = () => {
-    window.location.href = "product/:id";
-  };
+  // const home = () => {
+  //   window.location.href = "/";
+  // };
+  // const product = () => {
+  //   window.location.href = "product/:id";
+  // };
+  const navigate1 = useNavigate()
+  const navigate = useNavigate()
   return (
     <div>
       <div className="main3">
@@ -32,10 +35,10 @@ const About = () => {
           alt=""
         />
         <div style={{ marginLeft: "220px" }}>
-          <button className="home" onClick={home}>
+          <button className="home" onClick={()=>navigate1("/")}>
             <u>Home</u>
           </button>
-          <button className="product" onClick={product}>
+          <button className="product" onClick={()=>navigate("/product/:id")}>
             <u>All Product</u>
           </button>
           <button className="about">

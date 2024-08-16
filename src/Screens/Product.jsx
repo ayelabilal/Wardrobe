@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import logo1 from '../assets/Logo-Black.png'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import logo from '../assets/logo.png'
 
 const Product = () => {
-    const home=()=>{
-        window.location.href='/'
-    }
+    // const home=()=>{
+    //     window.location.href='/'
+    // }
+
+    const navigate = useNavigate()
 
     const { id } = useParams();
    
@@ -22,25 +24,26 @@ const Product = () => {
 
     setSingleData([response]);        
   };
-  const about =()=>{
-    window.location.href='/about'
-  }
+  // const about =()=>{
+  //   window.location.href='/about'
+  // }
+  const navigate2 = useNavigate()
   return (
     <div>
       <div className='secMain'>
-      <img onClick={home}
+      <img onClick={()=>navigate("/")}
           style={{ paddingTop: "50px", paddingLeft: "50px"}}
           src={logo1}
           alt=""
         />
          <div style={{ marginLeft: "220px" }}>
-          <button className="home" onClick={home}>
+          <button className="home" onClick={()=>navigate("/")}>
             <u>Home</u>
           </button>
           <button className="product">
             <u>All Product</u>
           </button>
-          <button className="about" onClick={about}>
+          <button className="about" onClick={()=>navigate2("/about")}>
             <u>About Us</u>
           </button>
         </div>

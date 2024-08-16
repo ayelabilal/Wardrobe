@@ -6,6 +6,7 @@ import axios from "axios";
 import { GrDeliver } from "react-icons/gr";
 import { MdDiscount } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 // import './src/App.css';
 const Home = () => {
 
@@ -22,12 +23,15 @@ const Home = () => {
 
   console.log(productData);
 
-  const product=()=>{
-    window.location.href ='/product/:id'
-  }
-  const aboutus =()=>{
-    window.location.href='/about'
-  }
+  const navigate1 = useNavigate()
+
+  // const product=()=>{
+  //   window.location.href ='/product/:id'
+  // }
+  // const aboutus =()=>{
+  //   window.location.href='/about'
+  // }
+  const navigate = useNavigate()
   return (
     <div>
       <div className="main">
@@ -40,10 +44,10 @@ const Home = () => {
           <button className="home">
             <u>Home</u>
           </button>
-          <button className="product" onClick={product}>
+          <button className="product" onClick={()=>navigate1('/product/:id')}>
             <u>All Product</u>
           </button>
-          <button className="about" onClick={aboutus}>
+          <button className="about" onClick={()=>navigate("/about")}>
             <u>About Us</u>
           </button>
         </div>
